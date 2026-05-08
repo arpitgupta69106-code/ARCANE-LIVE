@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Arcane ReignX</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Orbitron',sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+/* VIDEO BG */
+#bgVideo{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+  filter:brightness(001.1);
+}
+
+/* overlay */
+body::after{
+  content:"";
+  position:fixed;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle, rgb(112, 245, 4), transparent);
+  z-index:-1;
+}
+
+/* NAVBAR */
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  padding:20px 60px;
+}
+
+.logo{
+  color:#f40505;
+  font-size:22px;
+  text-shadow:0 0 10px #f35d00;
+}
+
+.nav a{
+  margin:0 15px;
+  color:white;
+  text-decoration:none;
+  position:relative;
+  padding:5px 0;
+}
+
+/* 🔥 PURPLE UNDERLINE ANIMATION */
+.nav a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-5px;
+  width:0%;
+  height:3px;
+  background:#fa0303;
+  box-shadow:0 0 10px #ff1303;
+  transition:0.3s;
+}
+
+.nav a:hover::after{
+  width:100%;
+}
+
+.nav a:hover{
+  color:#f91900;
+}
+
+/* HERO */
+.hero{
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  text-align:center;
+}
+
+/* TEXT ANIMATION */
+.hero h1{
+  font-size:75px;
+  font-weight:700;
+
+  background: linear-gradient(90deg, red, rgb(249, 1, 1), rgb(255, 213, 4), rgb(252, 115, 3), rgb(247, 4, 4), rgb(255, 109, 5), violet, red);
+  background-size:300%;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 0 3px rgb(253, 124, 2),
+    0 0 5px rgb(254, 246, 0),
+    0 0 5px rgba(146, 51, 234, 0.026);
+
+  animation: flow 2s linear infinite;
+}
+
+@keyframes flow{
+  0%{background-position:0%}
+  100%{background-position:300%}
+}
+
+.hero p{
+  margin-top:10px;
+  opacity:0.9;
+  color:#ffffff;
+}
+
+/* BUTTON */
+.btn{
+  margin-top:25px;
+  padding:14px 30px;
+  border:none;
+  border-radius:10px;
+  background:linear-gradient(45deg,#9333ea,#6b21a8);
+  color:white;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 25px #fdfcfe;
+}
+
+/* INFO */
+.info{
+  opacity:0;
+  transform:translateY(50px);
+  transition:0.6s;
+  text-align:center;
+  margin:100px auto;
+  max-width:700px;
+  background:rgba(120, 86, 86, 0);
+  padding:25px;
+  border-radius:12px;
+}
+
+.info.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+.info h2{
+  color:#ff6a00;
+  text-shadow:0 0 10px #ff3c00, 0 0 20px #ff0000;
+}
+
+/* 🔥 PARAGRAPH WHITE */
+.info p{
+  color:#fef9f9;
+  opacity:1;
+}
+
+/* SOCIALS */
+.socials{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  margin:60px 0;
+}
+
+.card{
+  width:120px;
+  height:50px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-radius:10px;
+  background:rgba(230, 218, 218, 0.985);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:scale(1.1);
+}
+
+.card:nth-child(1):hover{ box-shadow:0 0 20px rgb(248, 4, 4); }
+.card:nth-child(2):hover{ box-shadow:0 0 20px #24f703; }
+.card:nth-child(3):hover{ box-shadow:0 0 20px #034af0; }
+
+</style>
+</head>
+
+<body>
+
+<!-- VIDEO BACKGROUND -->
+<video autoplay muted loop id="bgVideo">
+  <source src="https://www.desktophut.com/files/1772718808.mp4" type="video/mp4">
+</video>
+
+<!-- NAV -->
+<div class="navbar">
+  <div class="logo">ARCANE REIGNX</div>
+  <div class="nav">
+ <a href="ARCANE.HTML">Home</a>
+<a href="#streamInfo">Stream</a>
+<a href="#">Videos</a>
+<a href="#infoSection">Content</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <h1>Welcome  To Arcane Web</h1>
+  <p>Gaming • Streaming • Entertainment</p>
+  <button onclick="goToInfo()" class="btn">CLICK NOW</button>
+</div>
+<div id="streamInfo" class="stream-box" style="display:none;">
+  
+</div>
+</div> 
+
+<!-- INFO -->
+<div id="infoSection" class="info">
+  <h2>About My Content 🎮</h2>
+  <p>
+    I upload gaming content, and this website is just a college project 
+I’m testing for now. I’m not a web developer, just someone trying to 
+create something cool and give my best. Maybe it becomes something 
+bigger in the future… maybe not. But for now, this is my journey 
+through the dark. 🖤⚔️
+  </p>
+</div>
+
+<!-- SOCIALS -->
+<div class="socials">
+  <div class="card" onclick="openLink('https://youtube.com/@arcanereignx?si=bbLkBTv4egagESM7')"><h3>YouTube</h3></div>
+  <div class="card" onclick="openLink('https://www.instagram.com/arcanereignx?igsh=MWJ3eDB6YXY5NXJrcg==')"><h3>Instagram</h3></div>
+  <div class="card" onclick="openLink('https://discord.gg/ZzuXPpzc8Y')"><h3>Discord</h3></div>
+</div>
+
+<script>
+function goToInfo(){
+  const sec = document.getElementById("infoSection");
+  sec.scrollIntoView();
+  setTimeout(()=>{ sec.classList.add("show"); },300);
+}
+
+function openLink(url){
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
